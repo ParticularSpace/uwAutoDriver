@@ -20,6 +20,10 @@ class Graph {
         return false;
     }
 
+    removePoint(point){
+        this.points.splice(this.points.indexOf(point), 1);
+    }
+
     addSegment(seg){
         this.segments.push(seg);
     }
@@ -39,6 +43,8 @@ class Graph {
     removeSegment(seg){
         this.segments.splice(this.segments.indexOf(seg), 1);
     }
+
+ 
 
     draw(ctx){
         for (const seg of this.segments){
