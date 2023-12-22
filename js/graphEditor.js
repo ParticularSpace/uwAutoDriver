@@ -22,7 +22,7 @@ class GraphEditor {
   }
 
     #handleMouseMove(evt) {
-        this.mouse = this.viewport.getMouse(evt);
+        this.mouse = this.viewport.getMouse(evt, true);
         this.hovered = getNearestPoint(this.mouse, this.graph.points, 10 * this.viewport.zoom);
         if (this.dragging) {
           this.selected.x = this.mouse.x;
@@ -63,6 +63,12 @@ class GraphEditor {
     if (this.selected == point) {
       this.selected = null;
     }
+  }
+
+  dispose() {
+    this.graph.dispose();
+    this.selected = null;
+    this.hovered = null;
   }
 
   display() {
