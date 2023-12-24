@@ -27,7 +27,7 @@ class World {
             env.draw(ctx);
         }
         for (const seg of this.roadBorders){
-            seg.draw(ctx, { color: "red", width: 4});
+            seg.draw(ctx, { color: "white", width: 4 });
         }
     }
 }
