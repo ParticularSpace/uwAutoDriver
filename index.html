@@ -44,7 +44,7 @@
       let oldGraphHash = graph.hash();
 
       setMode("graph");
-
+      
       animate();
 
       function animate() {
@@ -72,19 +72,21 @@
         dissabledEditors();
         switch (mode) {
           case "graph":
-            graphBtn.style.backgroundColor = "white";
-            graphBtn.style.filter = "grayscale(0%)";
+          graphBtn.style.backgroundColor = "white";
+            graphBtn.style.filter = "";
+            graphEditor.enable();
             break;
           case "stop":
             stopBtn.style.backgroundColor = "white";
-            stopBtn.style.filter = "grayscale(0%)";
+            stopBtn.style.filter = "";
             break;
+          }
         }
-      }
-
-      function dissabledEditors() {
+            
+            function dissabledEditors() {
         graphBtn.style.backgroundColor = "gray";
         graphBtn.style.filter = "grayscale(100%)";
+        graphEditor.disable();
         stopBtn.style.backgroundColor = "gray";
         stopBtn.style.filter = "grayscale(100%)";
       }
