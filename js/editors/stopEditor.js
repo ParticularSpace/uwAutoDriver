@@ -43,7 +43,17 @@ class StopEditor{
         10 * this.viewport.zoom
         );
         if (seg) {
-          this.intent = seg;
+          const proj = seg.projectPoint(this.mouse);
+          if(proj.offset >= 0 && proj.offset <= 1){
+            this.intent = new Stop(
+                proj.point,
+                seg.directionVector(),
+                world.roadWidth,
+                world.roadWidth / 2,
+            );
+          } else {
+            this.intent = null;
+          }
         } else {
           this.intent = null;
         }
