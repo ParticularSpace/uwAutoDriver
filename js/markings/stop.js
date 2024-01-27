@@ -9,9 +9,21 @@ class Stop{
             translate(center, angle(directionVector), height / 2),
             translate(center, angle(directionVector), -height / 2)
         );
+        this.poly = new Envelope(this.support, width, 0).poly;
     }
 
     draw(ctx){
-        this.support.draw(ctx);
+        this.poly.draw(ctx);
+        ctx.save();
+        ctx.translate(this.center.x, this.center.y);
+        ctx.rotate(angle(this.directionVector));
+
+        ctx.beginPath();
+        ctx.textBaseLine = "middle";
+        ctx.textAlign = "center";
+        ctx.fillStyle = "white";
+        ctx.fillText("STOP", 0, 0);
+
+        ctx.restore();
     }
 }
